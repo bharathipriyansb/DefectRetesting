@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>KAN-1 Execution Report</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;padding:20px}
+    h1{color:#333}
+    .step{margin-bottom:20px}
+    .snapshot{max-width:100%;border:1px solid #ccc;margin-top:8px}
+    .meta{background:#f8f8f8;padding:10px;border-radius:6px;margin-bottom:12px}
+    .status-pass{color:green;font-weight:bold}
+    .status-fail{color:red;font-weight:bold}
+  </style>
+</head>
+<body>
+  <h1>KAN-1 Execution Report</h1>
+  <div class="meta">
+    <p>Test: KAN-1 — Add/Remove Elements</p>
+    <p>URL: https://the-internet.herokuapp.com/add_remove_elements/</p>
+    <p>Summary: Total Steps: 2, Passed: 2, Failed: 0, Overall Status: PASS</p>
+  </div>
+
+  <div class="step">
+    <h2>Step 1 — Navigate to Page</h2>
+    <p>Action: Open the URL</p>
+    <img class="snapshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6EAAAQNCAYAAACsIkwxAAAQAElEQVR4AezdCZwcZZ3/8d+T+04mJ0kghAnhPpJMuG/IICICIgRQEEFIcEGRQxNX19X12MzfXZVdXDezHuuxiokieILDGUCuDEc45Eq4Qc7IESDk+tf36alOTadnprunj6rqz7zm6bqfep53NTrfPNXVfTbxgwACCCCAAAIIIIAAAgiUKLBx48ZNGzdu3LR+/fpN69at2/Tuu+9uevvttze9+eabmz77m89umv6N6ZvOuvysTYf912Gb7CKLTdlx0Y6+Xe9vff+mXb6xy6bb771902OPPbbpySef3PTcc89tevHFFze9+uqrm15//fVNa9as8f167733fD83bNjg+7xx48ZN/BQv0Mf4qZEAp0UAAQQQQAABBBBAIJ0CQSwxlc8f8nn74A4ftN8++FvbZcIudvKMk23csHGx6PQjLz1iS+5bYus3rreBAwfa6b893V58/UVbu3atL0HgtCBUWxCufQmCp23cuNEX9U1FHQmnmqcUJkAILcyJvdIkQF8QQAABBBBAAAEEqiaw4KAFdvrup9vtT91uU0dPtUMaD6nauXs60Vtr37KHX3rY9py0p+08eWe74IYLskFUIVSFINqTYvHbCaHFm3EEAgiUKMBhCCCAAAIIIJBeAeec75xzzpzLFL8ieLlov4tsv632s8tuucwG9htoR0w/wgb1GxRsqf3vM39/xq5//HrfkD79+thZV5+1RRBVGGVE1BOV5YUQWhZGKkEAAQRiLUDjEEAAAQQQqJiAc26Lup3LrHPO+UDap08fu3i/i+2M3c6wB/72gB3ceLB9ZNZHbMSgEVscW4sVT69+2m5ceaNtPWprmzJ2il1000X20hsvdbotlyBavitDCC2fJTUhgAACCCCQI8AiAgggUF8CzmVCp3POFDxzy2f2/oztO25f+5/b/8fWbVhnMybNsLj86Nbch158yCaPnGwNIxrs7D+fnQ2i+pyobssliJbnahFCy+NILQgggAACCCAQJwHaggACVRdwzvlzOuf86Kdzbosg2rdvX7tgrwvs/VPe70ce95qyl318r4/b+GHjrdY/GzdttPBhRX379LWRw0baJ6/7pA+iCp8E0fJdIUJo+SypCQEEEEAAAQQQqHsBAOpbwLnNAdS5zHzfIHiq9OvXz8Ly6dmf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"></img>
+  </div>
+
+  <div class="step">
+    <h2>Step 2 — Click "Add Element"</h2>
+    <p>Action: Click the Add Element button once. Expect a Delete button to appear.</p>
+    <img class="snapshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6EAAAQNCAYAAACsIkwxAAAQAElEQVR4AezdCZwcZZ3/8d+T+04mJ0kghAnhPpJMuOSGDCIiIEIABRGEBJcocmjiuut6b+bvrsourptZ1PVYxQQRxAMczgByZTjCIVeG+z4CIQmEXP/6Pj3Vqen0zHT39FHV/ZnXPF33U8/zrkbnm6e6utdmfhBAAAEEEEAAAQQQQACBAgU2bdq0edOmTZs3bNiwef369Zvff//9zWvXrt387rvvbv7S77+0eep3p24++4qzNx/+X4dvtossNmXnhTv7dn2k+SObd/vubpvveuCuzU
