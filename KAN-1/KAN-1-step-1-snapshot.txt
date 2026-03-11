@@ -1,0 +1,19 @@
+STEP 1: Navigate to Add/Remove Elements Page
+==============================================
+
+URL: https://the-internet.herokuapp.com/add_remove_elements/
+Status: SUCCESS
+
+Page Elements:
+- Page Title: The Internet
+- Heading: Add/Remove Elements
+- Button: Add Element [VISIBLE]
+- No Delete buttons present (as expected at initial state)
+
+Accessibility Snapshot:
+- link "Fork me on GitHub"
+- heading "Add/Remove Elements" [level=3]
+- button "Add Element" [cursor=pointer]
+- link "Powered by Elemental Selenium"
+
+Navigation completed successfully.
