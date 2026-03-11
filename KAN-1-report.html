@@ -28,6 +28,31 @@
       <th>Screenshot</th>
     </tr>
   </table>
-  <div id="summary-section" class="summary">EXECUTING...</div>
+  <table id="results">
+    <tr class="pass">
+      <td>1</td>
+      <td>Navigate to Add/Remove Elements page</td>
+      <td>PASS</td>
+      <td>Initial page loaded successfully</td>
+    </tr>
+    <tr class="pass">
+      <td>2</td>
+      <td>Click "Add Element" button and verify Delete button appears</td>
+      <td>PASS</td>
+      <td>Delete button successfully appeared after clicking Add Element</td>
+    </tr>
+  </table>
+  <div id="summary-section" class="summary" style="background-color: #d4edda;">
+    <h2>Test Result: PASS ✓</h2>
+    <p><strong>Finding:</strong> The defect is NOT reproducible in current environment.</p>
+    <p><strong>Evidence:</strong></p>
+    <ul>
+      <li>Step 1: Successfully navigated to https://the-internet.herokuapp.com/add_remove_elements/</li>
+      <li>Step 2: Clicked "Add Element" button</li>
+      <li>Step 3: Confirmed "Delete" button appeared on page (2 buttons detected)</li>
+    </ul>
+    <p><strong>Status:</strong> EXPECTED BEHAVIOR OBSERVED - Delete button creates as expected</p>
+    <p><strong>Conclusion:</strong> The issue reported in KAN-1 may have been fixed or is environment-specific. Recommend: CLOSE AS RESOLVED or investigate specific browser/environment conditions.</p>
+  </div>
 </body>
 </html>
