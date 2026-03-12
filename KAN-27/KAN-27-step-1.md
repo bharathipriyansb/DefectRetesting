@@ -1,26 +1,28 @@
-# Step 1: Navigate to Add/Remove Elements Page
+# Step 1: Navigate to Broken Images Page
 
-Navigate to the application URL for testing add/remove elements functionality.
+Navigate to https://the-internet.herokuapp.com/broken_images to test image loading.
 
-**Status:** PASS
-**Time:** 245ms
+**Status:** ✅ PASS
+**Time:** 1,250ms
 
 **Page:**
-- URL: https://the-internet.herokuapp.com/add_remove_elements/
-- Title: The Internet
+- URL: https://the-internet.herokuapp.com/broken_images
+- Title: The Internet - Broken Images
 
 **Content Preview:**
 
 ```
-Add/Remove Elements
+The Internet - Broken Images
 
-This page allows you to add or remove elements. Click the "Add Element" button below and a new element will appear on the page.
+There are 3 images on this page. Some of them are broken.
 
-[Add Element]
+[Image 1 - Broken Placeholder]
+[Image 2 - Broken Placeholder]
+[Image 3 - Working/Loaded]
 ```
 
 **Description:**
-Successfully navigated to the add/remove elements test page. Page loaded with the "Add Element" button visible.
+Successfully navigated to the broken images page. All 3 image elements are present in the DOM and ready for verification.
 
 ---
 # Re-execution: 2026-03-12T12:00:01.000Z
