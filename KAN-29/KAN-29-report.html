@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN-29 - Test Execution Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            background: #f8f9fa;
+            padding: 0;
+        }
+        
+        .stat-item {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        .stat-item:last-child {
+            border-right: none;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .stat-value.pass {
+            color: #28a745;
+        }
+        
+        .stat-value.fail {
+            color: #dc3545;
+        }
+        
+        .stat-value.total {
+            color: #667eea;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-pass {
+            background: #d4edda;
+            color: #155724;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .status-fail {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .step-row {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .step-row.fail {
+            border-left-color: #dc3545;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-row.fail .step-number {
+            background: #dc3545;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .step-time {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .image-details {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .image-details.broken {
+            border-left-color: #dc3545;
+        }
+        
+        .summary-box {
+            background: #e7f3ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        
+        .summary-box.fail {
+            background: #ffe7e7;
+            border-left-color: #dc3545;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>KAN-29 - Test Execution Report</h1>
+            <p>Broken Images Verification Test</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">Total Steps</div>
+                <div class="stat-value total">2</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Passed</div>
+                <div class="stat-value pass">1</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Failed</div>
+                <div class="stat-value fail">1</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Total Time</div>
+                <div class="stat-value">3400ms</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Execution Overview -->
+            <div class="section">
+                <h2>Execution Overview</h2>
+                <div class="summary-box fail">
+                    <strong>Status:</strong> FAIL<br>
+                    <strong>Result:</strong> Defect Confirmed - First two images are broken, third image is proper<br>
+                    <strong>Test URL:</strong> https://the-internet.herokuapp.com/broken_images
+                </div>
+            </div>
+            
+            <!-- Step Execution -->
+            <div class="section">
+                <h2>Step Execution Details</h2>
+                
+                <div class="step-row">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Navigate to Page</div>
+                        <div class="step-time">Duration: 1250ms | Status: <span class="status-pass">PASS</span></div>
+                    </div>
+                </div>
+                
+                <div class="step-row fail">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Verify All Images Are Clear</div>
+                        <div class="step-time">Duration: 2150ms | Status: <span class="status-fail">FAIL</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Verification Results -->
+            <div class="section">
+                <h2>Image Verification Results</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image #</th>
+                            <th>Source</th>
+                            <th>Expected</th>
+                            <th>Actual</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Image 1</td>
+                            <td>asdf.jpg</td>
+                            <td>PROPER</td>
+                            <td>BROKEN (404)</td>
+                            <td><span class="status-fail">FAIL</span></td>
+                        </tr>
+                        <tr>
+                            <td>Image 2</td>
+                            <td>hjkl.jpg</td>
+                            <td>PROPER</td>
+                            <td>BROKEN (404)</td>
+                            <td><span class="status-fail">FAIL</span></td>
+                        </tr>
+                        <tr>
+                            <td>Image 3</td>
+                            <td>img/avatar-blank.jpg</td>
+                            <td>PROPER</td>
+                            <td>PROPER (200)</td>
+                            <td><span class="status-pass">PASS</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Defect Analysis -->
+            <div class="section">
+                <h2>Defect Analysis</h2>
+                <div class="image-details broken">
+                    <strong>✗ DEFECT CONFIRMED</strong><br><br>
+                    <strong>Issue:</strong> Image 1 and Image 2 are returning HTTP 404 Not Found<br>
+                    <strong>Expected Behavior:</strong> All three images should load successfully<br>
+                    <strong>Actual Behavior:</strong> First two images are broken, third image loads properly<br>
+                    <strong>Root Cause:</strong> Image sources (asdf.jpg, hjkl.jpg) are pointing to non-existent files<br>
+                    <strong>Impact:</strong> User experience degraded due to missing images
+                </div>
+            </div>
+            
+            <!-- Test Execution Artifacts -->
+            <div class="section">
+                <h2>Test Artifacts</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Artifact</th>
+                            <th>File</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Execution Script</td>
+                            <td>KAN-29-execution-script.js</td>
+                        </tr>
+                        <tr>
+                            <td>Step 1 Report</td>
+                            <td>KAN-29-step-1.md</td>
+                        </tr>
+                        <tr>
+                            <td>Step 2 Report</td>
+                            <td>KAN-29-step-2.md</td>
+                        </tr>
+                        <tr>
+                            <td>HTML Report</td>
+                            <td>KAN-29-report.html</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Test executed on: 2024-12-20 | Defect ID: KAN-29 | Repository: bharathipriyansb/DefectRetesting</p>
+            <p>Branch: Retesting-defects | Test URL: https://the-internet.herokuapp.com/broken_images</p>
+        </div>
+    </div>
+</body>
+</html>
