@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KAN-29 - Test Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+        .summary-box {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background: white;
+            border-left: 4px solid #667eea;
+        }
+        .summary-box.pass {
+            border-left-color: #28a745;
+        }
+        .summary-box.fail {
+            border-left-color: #dc3545;
+        }
+        .summary-box label {
+            display: block;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .summary-box .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .summary-box.pass .value {
+            color: #28a745;
+        }
+        .summary-box.fail .value {
+            color: #dc3545;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .status-badge.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-badge.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th {
+            background: #f8f9fa;
+            color: #333;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #ddd;
+        }
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        table tr.pass {
+            background: #d4edda;
+        }
+        table tr.fail {
+            background: #f8d7da;
+        }
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        .detail-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+        .detail-section.fail {
+            border-left-color: #dc3545;
+        }
+        .image-detail {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+        .image-detail.broken {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        .image-detail.proper {
+            border-left-color: #28a745;
+            background: #f5fff5;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+        .time-badge {
+            background: #e7f3ff;
+            color: #004085;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 KAN-29</h1>
+            <p>Broken Images Verification Test Report</p>
+        </div>
+
+        <div class="summary">
+            <div class="summary-box">
+                <label>Total Steps</label>
+                <div class="value">2</div>
+            </div>
+            <div class="summary-box pass">
+                <label>Passed</label>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-box fail">
+                <label>Failed</label>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-box">
+                <label>Total Time</label>
+                <div class="value">2635ms</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Overall Status</h2>
+                <p style="margin: 10px 0;">
+                    <span class="status-badge fail">FAIL</span>
+                </p>
+                <p style="color: #666; margin-top: 10px;">
+                    The test execution completed with 1 passing step and 1 failing step. The page navigation was successful, but the image verification failed due to broken images on the page.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Test Steps Execution</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="pass">
+                            <td><strong>1</strong></td>
+                            <td>Navigate to Broken Images Page</td>
+                            <td><span class="status-badge pass">PASS</span></td>
+                            <td><span class="time-badge">2450ms</span></td>
+                        </tr>
+                        <tr class="fail">
+                            <td><strong>2</strong></td>
+                            <td>Verify All Images Are Proper</td>
+                            <td><span class="status-badge fail">FAIL</span></td>
+                            <td><span class="time-badge">185ms</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Detailed Findings</h2>
+                
+                <div class="detail-section fail">
+                    <h3 style="margin-bottom: 10px;">🔴 Step 2: Image Verification Failed</h3>
+                    <p><strong>Expected:</strong> All three content images should be proper (loaded correctly)</p>
+                    <p><strong>Actual:</strong> 2 images are broken, 1 image is proper</p>
+                    
+                    <h4 style="margin-top: 15px; margin-bottom: 10px;">Image Analysis:</h4>
+                    <div class="image-detail proper">
+                        <strong>[1] Fork me on GitHub</strong> - ✓ PROPER
+                        <br><small>149x149 | https://the-internet.herokuapp.com/img/forkme_right_green_007200.png</small>
+                    </div>
+                    <div class="image-detail broken">
+                        <strong>[2] asdf.jpg</strong> - ✗ BROKEN
+                        <br><small>0x0 | https://the-internet.herokuapp.com/asdf.jpg</small>
+                    </div>
+                    <div class="image-detail broken">
+                        <strong>[3] hjkl.jpg</strong> - ✗ BROKEN
+                        <br><small>0x0 | https://the-internet.herokuapp.com/hjkl.jpg</small>
+                    </div>
+                    <div class="image-detail proper">
+                        <strong>[4] avatar-blank.jpg</strong> - ✓ PROPER
+                        <br><small>160x160 | https://the-internet.herokuapp.com/img/avatar-blank.jpg</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Summary Statistics</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><strong>Page URL</strong></td>
+                            <td>https://the-internet.herokuapp.com/broken_images</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Page Title</strong></td>
+                            <td>The Internet</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Images Found</strong></td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proper Images</strong></td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Broken Images</strong></td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Test Execution Time</strong></td>
+                            <td>2635ms (2.635 seconds)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Generated: 2025-03-12 | Defect ID: KAN-29 | Test Type: Image Verification</p>
+        </div>
+    </div>
+</body>
+</html>
