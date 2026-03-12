@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>KAN-27 - Test Execution Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+      border: 1px solid #dee2e6;
+    }
+    
+    .stat .value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #667eea;
+    }
+    
+    .stat .label {
+      font-size: 12px;
+      color: #6c757d;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    
+    .stat.pass .value {
+      color: #28a745;
+    }
+    
+    .stat.fail .value {
+      color: #dc3545;
+    }
+    
+    .stat.total .value {
+      color: #667eea;
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    
+    table th {
+      background: #f8f9fa;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #dee2e6;
+      font-size: 14px;
+    }
+    
+    table td {
+      padding: 15px 12px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    table tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .step-col {
+      width: 60px;
+      font-weight: 600;
+      color: #667eea;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    
+    .status-badge.pass {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-badge.fail {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    .time-col {
+      color: #6c757d;
+      font-size: 13px;
+    }
+    
+    .footer {
+      padding: 20px 40px;
+      background: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+      text-align: center;
+      color: #6c757d;
+      font-size: 13px;
+    }
+    
+    .overall-status {
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .overall-status.pass {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .overall-status.fail {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>KAN-27 - Test Execution Report</h1>
+      <p>Add/Remove Elements Functionality Test</p>
+    </div>
+    
+    <div class="summary">
+      <div class="stat total">
+        <div class="value">3</div>
+        <div class="label">Total Steps</div>
+      </div>
+      <div class="stat pass">
+        <div class="value">3</div>
+        <div class="label">Passed</div>
+      </div>
+      <div class="stat fail">
+        <div class="value">0</div>
+        <div class="label">Failed</div>
+      </div>
+      <div class="stat">
+        <div class="value">2830ms</div>
+        <div class="label">Total Time</div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="overall-status pass">
+        ✓ ALL TESTS PASSED
+      </div>
+      
+      <h2 style="margin-bottom: 20px; color: #333;">Test Execution Results</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th class="time-col">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="step-col">1</td>
+            <td>Navigate to Add/Remove Elements Page</td>
+            <td><span class="status-badge pass">PASS</span></td>
+            <td class="time-col">2100ms</td>
+          </tr>
+          <tr>
+            <td class="step-col">2</td>
+            <td>Click "Add Element" Button</td>
+            <td><span class="status-badge pass">PASS</span></td>
+            <td class="time-col">450ms</td>
+          </tr>
+          <tr>
+            <td class="step-col">3</td>
+            <td>Verify "Delete" Button Appears</td>
+            <td><span class="status-badge pass">PASS</span></td>
+            <td class="time-col">280ms</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 style="margin-top: 30px; margin-bottom: 15px; color: #333;">Test Summary</h3>
+      <p style="color: #666; line-height: 1.6;">
+        <strong>Defect Status:</strong> RESOLVED ✓<br>
+        The "Delete" button now appears correctly when the "Add Element" button is clicked. 
+        The issue reported in KAN-27 has been successfully verified as fixed.
+      </p>
+    </div>
+    
+    <div class="footer">
+      <p>Generated: 2025-03-12 | Test URL: https://the-internet.herokuapp.com/add_remove_elements/</p>
+    </div>
+  </div>
+</body>
+</html>
