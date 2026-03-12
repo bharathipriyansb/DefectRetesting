@@ -68,3 +68,23 @@ The verification step failed because:
 - The test expected checkbox 2 to be unchecked
 - Checkbox 2 was found to be checked
 - This confirms the defect described in KAN-28
+
+---
+# Re-execution: 2026-03-12T12:00:00.000Z
+
+Status: FAIL
+Duration: 1300ms
+
+Page Info:
+- URL: https://the-internet.herokuapp.com/checkboxes
+- Title: The Internet
+
+Content Preview:
+The Internet
+Checkboxes
+There are two checkboxes on this page.
+
+☑ checkbox 1  (unchecked - correct)
+☑ checkbox 2  (CHECKED - INCORRECT)
+
+text
