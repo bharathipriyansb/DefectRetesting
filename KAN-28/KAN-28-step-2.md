@@ -108,3 +108,23 @@ There are two checkboxes on this page.
 ☑ checkbox 2  (CHECKED - INCORRECT)
 
 text
+
+---
+# Re-execution: 2026-03-12T15:00:00.000Z
+
+Status: FAIL
+Duration: 450ms
+
+Page Info:
+- URL: https://the-internet.herokuapp.com/checkboxes
+- Title: The Internet
+
+Content Preview:
+The Internet
+Checkboxes
+There are two checkboxes on this page.
+
+☑ checkbox 1  (unchecked - correct)
+☑ checkbox 2  (CHECKED - INCORRECT)
+
+text
