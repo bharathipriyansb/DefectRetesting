@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN-28 - Test Execution Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .summary-card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .summary-card .label {
+            font-size: 0.85em;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .summary-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .summary-card.failed .value {
+            color: #dc3545;
+        }
+        
+        .summary-card.passed .value {
+            color: #28a745;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        thead {
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.95em;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status {
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+        
+        .status.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step.fail {
+            border-left-color: #dc3545;
+            background: #fff5f6;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .step-detail {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin: 5px 0;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+            border-top: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>KAN-28</h1>
+            <p>Checkbox 2 Pre-checked State - Test Execution Report</p>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-card">
+                <div class="label">Total Steps</div>
+                <div class="value">2</div>
+            </div>
+            <div class="summary-card passed">
+                <div class="label">Passed</div>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-card failed">
+                <div class="label">Failed</div>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Total Time</div>
+                <div class="value">2095ms</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2>Test Execution Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1</td>
+                        <td>Navigate to Checkboxes Page</td>
+                        <td><span class="status pass">PASS</span></td>
+                        <td>1250ms</td>
+                    </tr>
+                    <tr>
+                        <td>#2</td>
+                        <td>Verify Checkbox 2 is NOT checked</td>
+                        <td><span class="status fail">FAIL</span></td>
+                        <td>845ms</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Detailed Results</h2>
+            
+            <div class="step">
+                <div class="step-title">✓ Step 1: Navigate to Checkboxes Page</div>
+                <div class="step-detail"><strong>URL:</strong> https://the-internet.herokuapp.com/checkboxes</div>
+                <div class="step-detail"><strong>Page Title:</strong> The Internet</div>
+                <div class="step-detail"><strong>Time:</strong> 1250ms</div>
+            </div>
+            
+            <div class="step fail">
+                <div class="step-title">✗ Step 2: Verify Checkbox 2 is NOT checked</div>
+                <div class="step-detail"><strong>Expected:</strong> Checkbox 2 should NOT be pre-checked</div>
+                <div class="step-detail"><strong>Actual:</strong> Checkbox 2 IS pre-checked</div>
+                <div class="step-detail"><strong>Status:</strong> DEFECT CONFIRMED</div>
+                <div class="step-detail"><strong>Time:</strong> 845ms</div>
+            </div>
+            
+            <h2>Defect Summary</h2>
+            <div class="step fail">
+                <div class="step-title">Defect: KAN-28 - Checkbox 2 Pre-checked Issue</div>
+                <div class="step-detail"><strong>Component:</strong> Checkboxes Page</div>
+                <div class="step-detail"><strong>Severity:</strong> Medium</div>
+                <div class="step-detail"><strong>Issue:</strong> Checkbox 2 is marked as checked by default, which is the incorrect initial state.</div>
+                <div class="step-detail"><strong>Reproduction:</strong> Navigate to https://the-internet.herokuapp.com/checkboxes and observe that checkbox 2 is already in a checked state.</div>
+                <div class="step-detail"><strong>Impact:</strong> Users may assume the checkbox was previously selected by them, causing confusion in form submission.</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Test Report Generated | KAN-28 Retesting Execution | Branch: Retesting-defects</p>
+        </div>
+    </div>
+</body>
+</html>
