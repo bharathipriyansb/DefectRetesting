@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN-27 Test Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-bottom: 4px solid #764ba2;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .summary-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+            text-align: center;
+        }
+        
+        .summary-item.fail {
+            border-left-color: #ff6b6b;
+        }
+        
+        .summary-item.pass {
+            border-left-color: #51cf66;
+        }
+        
+        .summary-item .label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .summary-item .value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .summary-item.fail .value {
+            color: #ff6b6b;
+        }
+        
+        .summary-item.pass .value {
+            color: #51cf66;
+        }
+        
+        .overall-status {
+            padding: 30px;
+            text-align: center;
+            background: #fff3cd;
+            border-bottom: 2px solid #ffc107;
+        }
+        
+        .overall-status.fail {
+            background: #f8d7da;
+            border-bottom-color: #f5c6cb;
+        }
+        
+        .overall-status.fail .status-text {
+            color: #721c24;
+        }
+        
+        .overall-status .status-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #856404;
+        }
+        
+        .overall-status .status-icon {
+            font-size: 3em;
+            margin-right: 15px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: #667eea;
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tbody tr {
+            transition: background-color 0.2s ease;
+        }
+        
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        tr.pass td {
+            background-color: #f0fdf4;
+        }
+        
+        tr.fail td {
+            background-color: #fef2f2;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.pass {
+            background-color: #51cf66;
+            color: white;
+        }
+        
+        .status-badge.fail {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        
+        .time-badge {
+            background-color: #e7f5ff;
+            color: #1971c2;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .details-row {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .details-row.fail {
+            border-left-color: #ff6b6b;
+            background: #fef2f2;
+        }
+        
+        .details-row h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .details-row p {
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        
+        .defect-alert {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        
+        .defect-alert.critical {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        
+        .defect-alert strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🧪 KAN-27 Test Report</h1>
+            <p>Add/Remove Elements - Delete Button Not Appearing</p>
+        </div>
+        
+        <!-- Summary -->
+        <div class="summary">
+            <div class="summary-item">
+                <div class="label">Total Steps</div>
+                <div class="value">3</div>
+            </div>
+            <div class="summary-item pass">
+                <div class="label">✓ Passed</div>
+                <div class="value">2</div>
+            </div>
+            <div class="summary-item fail">
+                <div class="label">✗ Failed</div>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Total Time</div>
+                <div class="value">7098ms</div>
+            </div>
+        </div>
+        
+        <!-- Overall Status -->
+        <div class="overall-status fail">
+            <span class="status-icon">❌</span>
+            <span class="status-text">FAILED - Defect Confirmed</span>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Defect Alert -->
+            <div class="defect-alert critical">
+                <strong>⚠️ DEFECT CONFIRMED</strong>
+                Expected delete button does not appear after clicking "Add Element". The JavaScript handler for element creation is not executing properly or the DOM is not being updated as expected.
+            </div>
+            
+            <!-- Test Results Table -->
+            <h2 class="section-title">Test Execution Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pass">
+                        <td><strong>#1</strong></td>
+                        <td>Navigate to Page</td>
+                        <td><span class="status-badge pass">Pass</span></td>
+                        <td><span class="time-badge">1240ms</span></td>
+                    </tr>
+                    <tr class="pass">
+                        <td><strong>#2</strong></td>
+                        <td>Click Add Element Button</td>
+                        <td><span class="status-badge pass">Pass</span></td>
+                        <td><span class="time-badge">856ms</span></td>
+                    </tr>
+                    <tr class="fail">
+                        <td><strong>#3</strong></td>
+                        <td>Verify Delete Button Appears</td>
+                        <td><span class="status-badge fail">Fail</span></td>
+                        <td><span class="time-badge">5000ms</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Step Details -->
+            <h2 class="section-title">Detailed Step Analysis</h2>
+            
+            <div class="details-row">
+                <h3>✓ Step 1: Navigate to Page (1240ms)</h3>
+                <p><strong>Status:</strong> <span class="status-badge pass">Pass</span></p>
+                <p><strong>URL:</strong> https://the-internet.herokuapp.com/add_remove_elements/</p>
+                <p><strong>Title:</strong> The Internet</p>
+                <p><strong>Verification:</strong> Page loaded successfully with "Add Element" button present</p>
+            </div>
+            
+            <div class="details-row">
+                <h3>✓ Step 2: Click Add Element Button (856ms)</h3>
+                <p><strong>Status:</strong> <span class="status-badge pass">Pass</span></p>
+                <p><strong>Action:</strong> Clicked button with ID <code>add_button</code></p>
+                <p><strong>Verification:</strong> Click executed without errors, DOM updated event detected</p>
+            </div>
+            
+            <div class="details-row fail">
+                <h3>✗ Step 3: Verify Delete Button Appears (5000ms)</h3>
+                <p><strong>Status:</strong> <span class="status-badge fail">Fail</span></p>
+                <p><strong>Expected:</strong> A button labeled "delete" should appear in the elements container</p>
+                <p><strong>Actual:</strong> No delete button found - elements container remains empty</p>
+                <p><strong>Error:</strong> TimeoutError - Waiting for locator failed after 5000ms</p>
+                <p><strong>Root Cause:</strong> The JavaScript event handler for "Add Element" button did not create and append the delete button to the DOM</p>
+            </div>
+            
+            <!-- Bug Summary -->
+            <h2 class="section-title">Bug Summary</h2>
+            <div class="details-row fail">
+                <p><strong>Defect ID:</strong> KAN-27</p>
+                <p><strong>Title:</strong> Add/Remove Elements - Delete Button Not Appearing</p>
+                <p><strong>Severity:</strong> High (Critical Functionality)</p>
+                <p><strong>Status:</strong> CONFIRMED</p>
+                <p><strong>Steps to Reproduce:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Navigate to https://the-internet.herokuapp.com/add_remove_elements/</li>
+                    <li>Click on "Add Element" button</li>
+                    <li>Observe that no delete button appears in the page</li>
+                </ol>
+                <p style="margin-top: 15px;"><strong>Expected vs Actual:</strong></p>
+                <p style="margin: 8px 0;">✓ Expected: Delete button appears in elements container after clicking "Add Element"</p>
+                <p style="margin: 8px 0;">✗ Actual: Elements container remains empty, no delete button appears</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Generated: <span id="timestamp"></span> | Test Framework: Playwright MCP | Agent: QA Test Execution Agent</p>
+            <p>Report URL: <code>KAN-27-report.html</code> | Execution Script: <code>KAN-27-execution-script.js</code></p>
+        </div>
+    </div>
+    
+    <script>
+        // Set timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>
