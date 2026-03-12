@@ -1,29 +1,30 @@
-# Step 2: Click on Add Element Button
+# Step 2: Verify First Two Images (Expected: Broken)
 
-Click the "Add Element" button once to trigger element creation.
+Check if the first two images display as broken on the page.
 
-**Status:** FAIL
-**Time:** 312ms
+**Status:** ✅ PASS
+**Time:** 890ms
 
 **Page:**
-- URL: https://the-internet.herokuapp.com/add_remove_elements/
-- Title: The Internet
+- URL: https://the-internet.herokuapp.com/broken_images
+- Title: The Internet - Broken Images
 
 **Content Preview:**
 
 ```
-Add/Remove Elements
-
-This page allows you to add or remove elements. Click the "Add Element" button below and a new element will appear on the page.
-
-[Add Element]
+The Internet - Broken Images
+Image 1: ❌ Broken (Confirmed)
+Image 2: ❌ Broken (Confirmed)
 ```
 
 **Description:**
-Clicked the "Add Element" button successfully. However, no new "Delete" button appeared on the page as expected. This confirms the defect reported in KAN-27.
+Verified that the first two images are broken as reported in the defect. Both images display broken image placeholders instead of the expected image content.
 
-**Issue:**
-Expected a new button with text "Delete" to appear after clicking "Add Element", but the page did not render the new element.
+**Verification Result:**
+- Image 1: Expected BROKEN → Actual BROKEN ✓
+- Image 2: Expected BROKEN → Actual BROKEN ✓
+
+**Status:** Defect behavior confirmed for Images 1 & 2
 
 ---
 # Re-execution: 2026-03-12T12:00:02.000Z
