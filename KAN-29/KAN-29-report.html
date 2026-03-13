@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAN-29 Test Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .stat-box {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #667eea;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #6c757d;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+    .content {
+      padding: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th {
+      background: #f8f9fa;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #e9ecef;
+      color: #495057;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e9ecef;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .pass {
+      background: #d4edda;
+    }
+    .fail {
+      background: #f8d7da;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .status-pass {
+      background: #28a745;
+      color: white;
+    }
+    .status-fail {
+      background: #dc3545;
+      color: white;
+    }
+    .summary {
+      background: #f8f9fa;
+      border-left: 4px solid #dc3545;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .summary h3 {
+      color: #dc3545;
+      margin-bottom: 10px;
+    }
+    .defect-details {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+    .defect-details h3 {
+      color: #856404;
+      margin-bottom: 10px;
+    }
+    .defect-details p {
+      color: #856404;
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+    .footer {
+      background: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      color: #6c757d;
+      font-size: 12px;
+      border-top: 1px solid #e9ecef;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>KAN-29 - Broken Images Test Report</h1>
+      <p>Image Load Verification Test</p>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Total Steps</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Passed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Failed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">1815ms</div>
+        <div class="stat-label">Total Time</div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="summary">
+        <h3>Test Result: FAIL</h3>
+        <p><strong>Overall Status:</strong> The test failed because 2 out of 3 content images are broken (showing as 0x0 pixels).</p>
+        <p><strong>Defect Confirmation:</strong> The reported defect is accurate - first two images (asdf.jpg, hjkl.jpg) fail to load while the third image (avatar-blank.jpg) loads successfully.</p>
+      </div>
+      
+      <h2 style="margin: 20px 0 15px 0; color: #333;">Step-by-Step Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Duration</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Navigate to Broken Images Page</td>
+            <td><span class="status-badge status-pass">Pass</span></td>
+            <td>1200ms</td>
+            <td>Page loaded successfully at https://the-internet.herokuapp.com/broken_images</td>
+          </tr>
+          <tr class="fail">
+            <td>2</td>
+            <td>Verify First Content Image (asdf.jpg)</td>
+            <td><span class="status-badge status-fail">Fail</span></td>
+            <td>150ms</td>
+            <td>Image broken - 0x0 pixels, 404 Not Found error</td>
+          </tr>
+          <tr class="fail">
+            <td>3</td>
+            <td>Verify Second Content Image (hjkl.jpg)</td>
+            <td><span class="status-badge status-fail">Fail</span></td>
+            <td>140ms</td>
+            <td>Image broken - 0x0 pixels, 404 Not Found error</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Verify Third Content Image (avatar-blank.jpg)</td>
+            <td><span class="status-badge status-pass">Pass</span></td>
+            <td>145ms</td>
+            <td>Image loaded successfully - 160x160 pixels</td>
+          </tr>
+          <tr class="fail">
+            <td>5</td>
+            <td>Verify Overall Image Status</td>
+            <td><span class="status-badge status-fail">Fail</span></td>
+            <td>180ms</td>
+            <td>2 broken images detected - defect confirmed</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="defect-details">
+        <h3>Defect Analysis</h3>
+        <p><strong>Defect ID:</strong> KAN-29</p>
+        <p><strong>Title:</strong> Broken Images on /broken_images Page</p>
+        <p><strong>Expected Behavior:</strong> All three images in the page should load properly</p>
+        <p><strong>Actual Behavior:</strong> First two images are broken (404 errors), third image loads successfully</p>
+        <p><strong>Root Cause:</strong> The images asdf.jpg and hjkl.jpg return 404 Not Found errors, indicating they don't exist on the server</p>
+        <p><strong>Test Verdict:</strong> DEFECT CONFIRMED - Issue is reproducible and matches the reported problem</p>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Test executed on: March 13, 2025 | Repository: bharathipriyansb/DefectRetesting | Branch: Retesting-defects</p>
+    </div>
+  </div>
+</body>
+</html>
