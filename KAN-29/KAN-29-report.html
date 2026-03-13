@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KAN-29 - Test Report</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #f5f5f5; }
+    .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { color: #333; margin-bottom: 10px; }
+    .summary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin: 20px 0; }
+    .metric { background: #f9f9f9; padding: 15px; border-radius: 6px; border-left: 4px solid #007bff; text-align: center; }
+    .metric.pass { border-left-color: #28a745; }
+    .metric.fail { border-left-color: #dc3545; }
+    .metric-value { font-size: 24px; font-weight: bold; color: #333; }
+    .metric-label { font-size: 12px; color: #666; margin-top: 5px; }
+    .results { margin-top: 30px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th { background: #007bff; color: white; padding: 12px; text-align: left; font-weight: 600; }
+    td { padding: 12px; border-bottom: 1px solid #ddd; }
+    tr:hover { background: #f9f9f9; }
+    .pass { background: #d4edda; color: #155724; font-weight: 600; }
+    .fail { background: #f8d7da; color: #721c24; font-weight: 600; }
+    .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .status-pass { background: #d4edda; color: #155724; }
+    .status-fail { background: #f8d7da; color: #721c24; }
+    .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KAN-29 - Test Execution Report</h1>
+    <p style="color: #666; margin-bottom: 20px;">Add/Remove Elements - Click Add Element Test</p>
+    
+    <div class="summary">
+      <div class="metric pass">
+        <div class="metric-value">2</div>
+        <div class="metric-label">Total Steps</div>
+      </div>
+      <div class="metric pass">
+        <div class="metric-value">2</div>
+        <div class="metric-label">Passed</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">0</div>
+        <div class="metric-label">Failed</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">1650ms</div>
+        <div class="metric-label">Total Time</div>
+      </div>
+      <div class="metric pass">
+        <div class="metric-value"><span class="status-badge status-pass">✓ PASS</span></div>
+        <div class="metric-label">Overall Status</div>
+      </div>
+    </div>
+    
+    <div class="results">
+      <h2>Test Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1</td>
+            <td>Navigate to Add/Remove Elements Page</td>
+            <td><span class="status-badge status-pass">✓ PASS</span></td>
+            <td>1200ms</td>
+          </tr>
+          <tr>
+            <td>#2</td>
+            <td>Click "Add Element" Button</td>
+            <td><span class="status-badge status-pass">✓ PASS</span></td>
+            <td>450ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="footer">
+      <p><strong>Defect Status:</strong> ✅ The reported defect does NOT reproduce.</p>
+      <p><strong>Conclusion:</strong> The "Add Element" button correctly creates and displays a "Delete" button on the page.</p>
+      <p style="margin-top: 10px;"><strong>Test Date:</strong> 2026-03-13 | <strong>Repository:</strong> bharathipriyansb/DefectRetesting | <strong>Branch:</strong> Retesting-defects</p>
+    </div>
+  </div>
+</body>
+</html>
