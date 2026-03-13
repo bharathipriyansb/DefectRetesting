@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAN-27 Test Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 30px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .summary-item {
+      text-align: center;
+    }
+    .summary-item .label {
+      color: #666;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .summary-item .value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .summary-item.passed .value {
+      color: #28a745;
+    }
+    .summary-item.failed .value {
+      color: #dc3545;
+    }
+    .summary-item.total .value {
+      color: #667eea;
+    }
+    .summary-item.time .value {
+      color: #17a2b8;
+    }
+    .content {
+      padding: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      color: #333;
+      font-size: 13px;
+    }
+    td {
+      border: 1px solid #dee2e6;
+      padding: 12px;
+      font-size: 14px;
+    }
+    tr.pass td {
+      background: #d4edda;
+    }
+    tr.pass .status-badge {
+      background: #28a745;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    tr.fail td {
+      background: #f8d7da;
+    }
+    tr.fail .status-badge {
+      background: #dc3545;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .footer {
+      background: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+      padding: 20px 30px;
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+    }
+    .overall-status {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .overall-status.pass {
+      color: #28a745;
+    }
+    .overall-status.fail {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Test Report: KAN-27</h1>
+      <p>Add/Remove Elements Functionality Test</p>
+    </div>
+
+    <div class="summary">
+      <div class="summary-item total">
+        <div class="label">Total Steps</div>
+        <div class="value">3</div>
+      </div>
+      <div class="summary-item passed">
+        <div class="label">Passed</div>
+        <div class="value">3</div>
+      </div>
+      <div class="summary-item failed">
+        <div class="label">Failed</div>
+        <div class="value">0</div>
+      </div>
+      <div class="summary-item time">
+        <div class="label">Total Time</div>
+        <div class="value">2030ms</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pass">
+            <td>1</td>
+            <td>Navigate to Add/Remove Elements page</td>
+            <td><span class="status-badge">PASS</span></td>
+            <td>1200ms</td>
+          </tr>
+          <tr class="pass">
+            <td>2</td>
+            <td>Click "Add Element" button</td>
+            <td><span class="status-badge">PASS</span></td>
+            <td>450ms</td>
+          </tr>
+          <tr class="pass">
+            <td>3</td>
+            <td>Verify "Delete" button appears</td>
+            <td><span class="status-badge">PASS</span></td>
+            <td>380ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <div class="overall-status pass">✓ Overall Status: PASS</div>
+      <p>All 3 steps executed successfully. The Delete button appears as expected after clicking Add Element.</p>
+      <p style="margin-top: 10px; color: #999;">Generated: 2026-03-13 18:21:20</p>
+    </div>
+  </div>
+</body>
+</html>
