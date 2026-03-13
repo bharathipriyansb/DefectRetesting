@@ -3,7 +3,7 @@
 **Description:** Verify that a new button named "Delete" appears after clicking Add Element
 
 **Status:** PASS  
-**Duration:** 380ms
+**Duration:** 892ms
 
 **Page Information:**
 - URL: https://the-internet.herokuapp.com/add_remove_elements/
@@ -13,10 +13,9 @@
 ```
 Add/Remove Elements
 
-
 Add Element
 Delete
 Powered by Elemental Selenium
 ```
 
-**Result:** Delete button successfully appeared and is visible on the page. The expected behavior matches the actual behavior - defect is NOT reproducible.
+**Result:** Delete button successfully appeared and is visible on the page. Expected behavior MATCHES actual behavior - defect is NOT reproducible. CLOSED: Expected vs Actual align perfectly.
