@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KAN-27 Test Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    .header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .summary {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-left: 4px solid #27ae60;
+    }
+    .summary.failed {
+      border-left-color: #e74c3c;
+    }
+    .summary h2 {
+      margin: 0 0 10px 0;
+      color: #2c3e50;
+    }
+    .status-pass {
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .status-fail {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+    th, td {
+      border: 1px solid #bdc3c7;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+    tr.pass {
+      background-color: #d4edda;
+    }
+    tr.fail {
+      background-color: #f8d7da;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr.pass:nth-child(even) {
+      background-color: #c3e6cb;
+    }
+    tr.fail:nth-child(even) {
+      background-color: #f5c6cb;
+    }
+    .footer {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #bdc3c7;
+      font-size: 12px;
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>KAN-27 - Test Execution Report</h1>
+    <p><strong>Defect:</strong> Add Element button does not create Delete button</p>
+    <p><strong>URL:</strong> https://the-internet.herokuapp.com/add_remove_elements/</p>
+  </div>
+
+  <div class="summary">
+    <h2>Execution Summary</h2>
+    <p><strong>Total Steps:</strong> 3</p>
+    <p><strong>Passed:</strong> <span class="status-pass">3</span></p>
+    <p><strong>Failed:</strong> <span class="status-fail">0</span></p>
+    <p><strong>Total Time:</strong> 2975ms</p>
+    <p><strong>Overall Status:</strong> <span class="status-pass">PASS</span></p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pass">
+        <td>1</td>
+        <td>Navigate to Page</td>
+        <td><span class="status-pass">PASS</span></td>
+        <td>2450ms</td>
+      </tr>
+      <tr class="pass">
+        <td>2</td>
+        <td>Click Add Element Button</td>
+        <td><span class="status-pass">PASS</span></td>
+        <td>380ms</td>
+      </tr>
+      <tr class="pass">
+        <td>3</td>
+        <td>Verify Delete Button Appears</td>
+        <td><span class="status-pass">PASS</span></td>
+        <td>145ms</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <p><strong>Execution Date:</strong> 2025-03-13</p>
+    <p><strong>Browser:</strong> Chrome</p>
+    <p><strong>Test Framework:</strong> Playwright</p>
+    <p><strong>Finding:</strong> The defect appears to be RESOLVED. The Delete button appears correctly after clicking the Add Element button.</p>
+  </div>
+</body>
+</html>
