@@ -1,4 +1,25 @@
-# Step 2: Click Add Element Button
+# Step 2: Click "Add Element" Button
+
+Click the "Add Element" button to add a new element to the page
+
+**Status:** PASS
+**Time:** 850ms
+
+**Page:**
+- URL: https://the-internet.herokuapp.com/add_remove_elements/
+- Title: The Internet
+
+**Content Preview:**
+```
+Add/Remove Elements
+
+Add Element
+Delete
+
+Powered by Elemental Selenium
+```
+
+**Result:** Button clicked successfully. Delete button appeared on the page.: Click Add Element Button
 
 Click the "Add Element" button once to add a new element
 
