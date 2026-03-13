@@ -1,9 +1,9 @@
-# Step 1: Navigate to Add/Remove Elements Page
+# Step 1: Navigate to Page
 
-**Description:** Navigate to https://the-internet.herokuapp.com/add_remove_elements/
+Navigate to https://the-internet.herokuapp.com/add_remove_elements/
 
 **Status:** PASS  
-**Duration:** 1200ms
+**Duration:** 2341ms
 
 **Page Information:**
 - URL: https://the-internet.herokuapp.com/add_remove_elements/
@@ -13,8 +13,8 @@
 ```
 Add/Remove Elements
 
-
 Add Element
+Delete
 Powered by Elemental Selenium
 ```
 
