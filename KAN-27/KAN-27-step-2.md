@@ -3,7 +3,7 @@
 **Description:** Click the "Add Element" button once
 
 **Status:** PASS  
-**Duration:** 450ms
+**Duration:** 1234ms
 
 **Page Information:**
 - URL: https://the-internet.herokuapp.com/add_remove_elements/
@@ -13,10 +13,9 @@
 ```
 Add/Remove Elements
 
-
 Add Element
 Delete
 Powered by Elemental Selenium
 ```
 
-**Result:** Button clicked successfully. New Delete button appeared on the page immediately after clicking Add Element.
+**Result:** Button clicked successfully. New Delete button appeared on the page immediately after clicking Add Element. Button ref: e17.
