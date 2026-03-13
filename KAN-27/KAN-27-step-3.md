@@ -1,5 +1,26 @@
 # Step 3: Verify Delete Button Appears
 
+Verify that the Delete button is visible on the page
+
+**Status:** PASS
+**Time:** 520ms
+
+**Page:**
+- URL: https://the-internet.herokuapp.com/add_remove_elements/
+- Title: The Internet
+
+**Content Preview:**
+```
+Add/Remove Elements
+
+Add Element
+Delete
+
+Powered by Elemental Selenium
+```
+
+**Result:** Delete button successfully verified as visible on the page. Defect is NOT reproducible - the expected behavior is working correctly.: Verify Delete Button Appears
+
 Verify that the "Delete" button is visible on the page
 
 **Status:** PASS  
