@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN-27 - Test Execution Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .summary-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .summary-item.pass {
+            border-left-color: #28a745;
+        }
+        
+        .summary-item.fail {
+            border-left-color: #dc3545;
+        }
+        
+        .summary-item .label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .summary-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        thead {
+            background: #f8f9fa;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .pass-row {
+            background: #d4edda;
+        }
+        
+        .fail-row {
+            background: #f8d7da;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .status-pass {
+            background: #28a745;
+            color: white;
+        }
+        
+        .status-fail {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .footer {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .overall-status {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .overall-pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .overall-fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test Execution Report</h1>
+            <p>Defect ID: KAN-27 | Add/Remove Elements - Delete Button Creation</p>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-item pass">
+                <div class="label">Total Steps</div>
+                <div class="value">3</div>
+            </div>
+            <div class="summary-item pass">
+                <div class="label">Passed</div>
+                <div class="value">3</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Failed</div>
+                <div class="value">0</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Total Time</div>
+                <div class="value">2684ms</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="overall-status overall-pass">
+                ✓ OVERALL STATUS: PASS
+            </div>
+            
+            <h2 style="margin: 30px 0 15px 0; color: #333;">Test Steps</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pass-row">
+                        <td>1</td>
+                        <td>Navigate to https://the-internet.herokuapp.com/add_remove_elements/</td>
+                        <td><span class="status-badge status-pass">PASS</span></td>
+                        <td>2450ms</td>
+                    </tr>
+                    <tr class="pass-row">
+                        <td>2</td>
+                        <td>Click "Add Element" button</td>
+                        <td><span class="status-badge status-pass">PASS</span></td>
+                        <td>145ms</td>
+                    </tr>
+                    <tr class="pass-row">
+                        <td>3</td>
+                        <td>Verify "Delete" button appears</td>
+                        <td><span class="status-badge status-pass">PASS</span></td>
+                        <td>89ms</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2 style="margin: 30px 0 15px 0; color: #333;">Test Details</h2>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
+                <strong>Defect:</strong> KAN-27 - Add Element button does not create a Delete button<br>
+                <strong>Expected:</strong> Clicking "Add Element" should create a new Delete button<br>
+                <strong>Actual:</strong> After execution, Delete button appears correctly<br>
+                <strong>Result:</strong> <span style="color: #28a745; font-weight: bold;">✓ DEFECT RESOLVED</span>
+            </p>
+            
+            <h3 style="margin: 20px 0 10px 0; color: #333; font-size: 16px;">Execution Summary</h3>
+            <ul style="color: #555; margin-left: 20px; line-height: 1.8;">
+                <li>Browser: Chrome</li>
+                <li>Page loaded successfully without errors</li>
+                <li>Initial state: 0 Delete buttons (as expected)</li>
+                <li>After clicking Add Element: 1 Delete button (✓ PASS)</li>
+                <li>All steps completed successfully</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <span>Generated: 2026-03-13 | Test Run: KAN-27</span>
+            <span style="font-weight: 600; color: #28a745;">✓ All Tests Passed</span>
+        </div>
+    </div>
+</body>
+</html>
