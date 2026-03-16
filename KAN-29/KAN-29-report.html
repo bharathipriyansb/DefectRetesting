@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAN-29 Test Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .summary-card {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .summary-card.pass {
+            border-left-color: #28a745;
+        }
+        .summary-card.fail {
+            border-left-color: #dc3545;
+        }
+        .summary-card .number {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .summary-card.pass .number {
+            color: #28a745;
+        }
+        .summary-card.fail .number {
+            color: #dc3545;
+        }
+        .summary-card .label {
+            font-size: 0.9em;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .content {
+            padding: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+            color: #495057;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr.pass td {
+            background: #d4edda;
+        }
+        tr.fail td {
+            background: #f8d7da;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85em;
+        }
+        .status-badge.pass {
+            background: #28a745;
+            color: white;
+        }
+        .status-badge.fail {
+            background: #dc3545;
+            color: white;
+        }
+        .overall-status {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        .overall-status .status-badge {
+            font-size: 1.2em;
+            padding: 10px 30px;
+        }
+        .details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .details h3 {
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        .details p {
+            margin: 5px 0;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>KAN-29 Test Report</h1>
+            <p>Broken Images Verification Test</p>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-card">
+                <div class="label">Total Steps</div>
+                <div class="number">4</div>
+            </div>
+            <div class="summary-card pass">
+                <div class="label">Passed</div>
+                <div class="number">2</div>
+            </div>
+            <div class="summary-card fail">
+                <div class="label">Failed</div>
+                <div class="number">2</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Total Time</div>
+                <div class="number">2943ms</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2>Test Execution Details</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pass">
+                        <td>1</td>
+                        <td>Navigate to Broken Images Page</td>
+                        <td><span class="status-badge pass">PASS</span></td>
+                        <td>2456ms</td>
+                        <td>Page navigated successfully to https://the-internet.herokuapp.com/broken_images</td>
+                    </tr>
+                    <tr class="pass">
+                        <td>2</td>
+                        <td>Verify Image 1 (Fork me on GitHub)</td>
+                        <td><span class="status-badge pass">PASS</span></td>
+                        <td>189ms</td>
+                        <td>Image loads correctly: 149x149px (https://the-internet.herokuapp.com/img/forkme_right_green_007200.png)</td>
+                    </tr>
+                    <tr class="fail">
+                        <td>3</td>
+                        <td>Verify Image 2 (asdf.jpg)</td>
+                        <td><span class="status-badge fail">FAIL</span></td>
+                        <td>156ms</td>
+                        <td>Image broken: 0x0px - 404 Not Found (https://the-internet.herokuapp.com/asdf.jpg)</td>
+                    </tr>
+                    <tr class="fail">
+                        <td>4</td>
+                        <td>Verify Image 3 (hjkl.jpg)</td>
+                        <td><span class="status-badge fail">FAIL</span></td>
+                        <td>142ms</td>
+                        <td>Image broken: 0x0px - 404 Not Found (https://the-internet.herokuapp.com/hjkl.jpg)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="details">
+                <h3>Defect Analysis</h3>
+                <p><strong>Expected Behavior:</strong> All three images on the page should load and display properly</p>
+                <p><strong>Actual Behavior:</strong> Only the first image (Fork me on GitHub) loads correctly. The second and third images (asdf.jpg and hjkl.jpg) are broken with 0x0 dimensions and 404 errors.</p>
+                <p><strong>Root Cause:</strong> The image resources at asdf.jpg and hjkl.jpg do not exist on the server (404 Not Found errors in console)</p>
+                <p><strong>Test Outcome:</strong> <span class="status-badge fail">DEFECT CONFIRMED</span></p>
+                <p><strong>Note:</strong> The defect report stated that the third image was proper, but testing confirms that both the second and third images are broken.</p>
+            </div>
+        </div>
+        
+        <div class="overall-status">
+            <div class="label" style="color: #6c757d; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9em;">Overall Test Status</div>
+            <span class="status-badge fail" style="margin-top: 10px;">FAIL</span>
+        </div>
+        
+        <div class="footer">
+            <p>Test Execution Date: 2026-03-16 | Defect ID: KAN-29 | Browser: Chromium</p>
+            <p>Repository: bharathipriyansb/DefectRetesting | Branch: Retesting-defects</p>
+        </div>
+    </div>
+</body>
+</html>
