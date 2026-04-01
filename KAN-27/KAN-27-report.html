@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KAN-27 Test Report</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1 { color: #333; }
+.summary { background: #f5f5f5; padding: 15px; border-left: 4px solid #d9534f; margin: 20px 0; }
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background: #f9f9f9; font-weight: bold; }
+.pass { background: #d4edda; color: #155724; }
+.fail { background: #f8d7da; color: #721c24; }
+.status-pass { color: #28a745; font-weight: bold; }
+.status-fail { color: #dc3545; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>KAN-27 Test Execution Report</h1>
+<div class="summary">
+<p><strong>Defect:</strong> Click Add Element - delete button should appear but doesn't</p>
+<p><strong>Total Steps:</strong> 3 | <span class="status-pass">Passed: 2</span> | <span class="status-fail">Failed: 1</span> | <strong>Total Time:</strong> 483ms | <strong>Overall Status:</strong> <span class="status-fail">FAIL</span></p>
+</div>
+<table>
+<tr>
+  <th>Step</th>
+  <th>Description</th>
+  <th>Status</th>
+  <th>Time</th>
+</tr>
+<tr class="fail">
+  <td>1</td>
+  <td>Navigate to add_remove_elements page</td>
+  <td>PASS</td>
+  <td>145ms</td>
+</tr>
+<tr class="pass">
+  <td>2</td>
+  <td>Click on Add Element button</td>
+  <td>PASS</td>
+  <td>156ms</td>
+</tr>
+<tr class="fail">
+  <td>3</td>
+  <td>Verify delete button appears</td>
+  <td>FAIL</td>
+  <td>182ms</td>
+</tr>
+</table>
+</body>
+</html>
